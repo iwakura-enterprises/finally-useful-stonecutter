@@ -1,1 +1,10 @@
-# finally-useful-stonecutter
+# Finally Useful Stonecutter
+
+Improving the UX of stonecutter by adding it memory and search functionality, client-side. 
+
+[CurseForge Download](https://www.curseforge.com/minecraft/mc-mods/finally-useful-stonecutter)
+
+## Available versions
+- Forge 1.20.1
+
+Want this mod for another version? Create an issue or DM me on Discord (`mayuna_`)!
