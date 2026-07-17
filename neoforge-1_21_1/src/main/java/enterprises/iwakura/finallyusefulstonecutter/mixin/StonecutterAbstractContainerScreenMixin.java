@@ -4,11 +4,13 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import enterprises.iwakura.finallyusefulstonecutter.StonecutterScreenDuck;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -19,9 +21,9 @@ import net.minecraft.network.chat.Component;
 public abstract class StonecutterAbstractContainerScreenMixin implements StonecutterScreenDuck {
 
     @Unique
-    private static final int finallyusefulstonecutter$xOffset = 90;
+    private static final int finallyusefulstonecutter$xOffset = 92;
     @Unique
-    private static final int finallyusefulstonecutter$yOffset = 0;
+    private static final int finallyusefulstonecutter$yOffset = 6;
     @Unique
     private static String finallyusefulstonecutter$lastSearch = "";
 
@@ -91,5 +93,20 @@ public abstract class StonecutterAbstractContainerScreenMixin implements Stonecu
     @Override
     public String finallyusefulstonecutter$getFilter() {
         return finallyusefulstonecutter$searchBox == null ? "" : finallyusefulstonecutter$searchBox.getValue();
+    }
+
+    @Redirect(
+        method = "renderLabels",
+        at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/client/gui/GuiGraphics;drawString(Lnet/minecraft/client/gui/Font;Lnet/minecraft/network/chat/Component;IIIZ)I",
+            ordinal = 1
+        )
+    )
+    private int finallyusefulstonecutter$suppressInventoryLabel(GuiGraphics guiGraphics, Font font, Component component, int x, int y, int color, boolean dropShadow) {
+        if ((Object) this instanceof StonecutterScreen) {
+            return 0;
+        }
+        return guiGraphics.drawString(font, component, x, y, color, dropShadow);
     }
 }

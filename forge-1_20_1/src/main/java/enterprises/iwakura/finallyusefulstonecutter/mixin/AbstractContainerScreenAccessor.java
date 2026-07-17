@@ -17,4 +17,16 @@ public interface AbstractContainerScreenAccessor {
 
     @Accessor("topPos")
     int finallyusefulstonecutter$getTopPos();
+
+    @Accessor("imageWidth")
+    void finallyusefulstonecutter$setImageWidth(int imageWidth);
+
+    @Accessor("imageHeight")
+    void finallyusefulstonecutter$setImageHeight(int imageHeight);
+
+    @Accessor("titleLabelY")
+    int finallyusefulstonecutter$getTitleLabelY();
+
+    @Accessor("titleLabelY")
+    void finallyusefulstonecutter$setTitleLabelY(int titleLabelY);
 }

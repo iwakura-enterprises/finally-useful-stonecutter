@@ -11,7 +11,8 @@
     "StonecutterAbstractContainerScreenMixin",
     "StonecutterScreenMixin",
     "ScreenAccessor",
-    "ScreenMixin"
+    "ScreenMixin",
+    "SlotAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
