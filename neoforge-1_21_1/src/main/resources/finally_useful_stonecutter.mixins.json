@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "enterprises.iwakura.finallyusefulstonecutter.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+  ],
+  "client": [
+    "AbstractContainerScreenAccessor",
+    "StonecutterAbstractContainerScreenMixin",
+    "StonecutterScreenMixin",
+    "ScreenAccessor",
+    "ScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
